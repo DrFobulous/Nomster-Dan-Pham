@@ -3,5 +3,7 @@ class Place < ApplicationRecord
     validates :name,:address,:description, presence: true, length: {minimum: 3, maximum: 500}
     geocoded_by :address
     after_validation :geocode 
+    has_many :comments
+
 end 
 
