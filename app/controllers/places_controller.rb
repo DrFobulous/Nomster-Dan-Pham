@@ -23,8 +23,8 @@ class PlacesController < ApplicationController
         @place = Place.find(params[:id])
 
         if @place.user != current_user
-            return render plain: 'Not Allowed', status: forbidden
-        end
+            return render plain: 'Not Allowed', status: :forbidden
+          end
     end
 
     def edit
@@ -37,8 +37,8 @@ class PlacesController < ApplicationController
         redirect_to root_path
 
         if @place.user != current_user
-            return render plain: 'Not Allowed', status: forbidden
-        end
+            return render plain: 'Not Allowed', status: :forbidden
+          end
 
         if @place.valid?
             redirect_to root_path
@@ -53,8 +53,8 @@ class PlacesController < ApplicationController
         redirect_to root_path
 
         if @place.user != current_user
-            return render plain: 'Not Allowed', status: forbidden
-        end
+            return render plain: 'Not Allowed', status: :forbidden
+          end
     end
 
     private
