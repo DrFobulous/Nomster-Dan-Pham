@@ -102,3 +102,8 @@
     </div>
 <% end %>
 </div>
+
+<%= simple_form_for @photo, url: 'place_captions_path' do |f| %>
+  <%= f.input :caption %>
+  <%= f.submit "Upload a photo", class: 'btn btn-primary' %>
+<% end %>
