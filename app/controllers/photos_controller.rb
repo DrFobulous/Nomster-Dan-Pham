@@ -5,3 +5,4 @@ class PhotosController < ApplicationController
         @photo = Photo.find(params[:place_id,:picture])
     end
 end
+
