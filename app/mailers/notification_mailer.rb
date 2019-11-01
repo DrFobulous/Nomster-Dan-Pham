@@ -5,6 +5,6 @@ class NotificationMailer < ApplicationMailer
         @place = comment.place
         @place_owner = @place.user
         mail(to: @place_owner.email,
-            subjet: "A Comment has been added to #{place.name}")
+            subject: "A Comment has been added to #{@place.name}")
     end
 end
