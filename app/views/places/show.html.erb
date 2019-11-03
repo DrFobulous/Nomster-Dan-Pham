@@ -103,20 +103,48 @@
 <% end %>
 </div>
 
-<% @place.photos.each do |photo| %>
-  <div class="col-12 col-smm-6">
-    <blockquote>
-      <% if photo.humanized_rating.present? %>
-      <b><% comment.humanized_rating %></b> -
-      <% end %>
-      <% photo.caption %>
-    </blockquote>
+<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">×</span>
+        </button>
+        <h4 class="modal-title" id="myModalLabel">Add a photo!</h4>
+      </div>
+      <div class="modal-body">
+        <%= simple_form_for @photo, url: place_photos_path(@place) do |f| %>
+            <%= f.input :caption %>
+            <%= f.input :picture %>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+        <%= f.submit "Upload Photo", class:'btn btn-secondary'%>
+      </div>
+      <% end %>  
+    </div>
   </div>
-<% end %>
+</div>
+<div class="col-10 offset-1">
+<h1 class="float-left"> Photos </h1>
+<!-- Button trigger modal -->
+<button type="button" class="btn btn-primary btn-lg float-right" data-toggle="modal" data-target="#myModal">
+  Add a Photo
+</button>
+</div>
 
-<%= simple_form_for @photo, url: 'place_captions_path' do |f| %>
-  <%= f.input :caption %>
-  <%= f.input :picture %>
-  <%= f.submit "Upload a photo", class: 'btn btn-primary' %>
-<% end %>
+
+
+
+
+<div class="clear"></div>
+  <div class="booyah-box col-10 offset-1">
+  <% @place.photos.each do |photo| %>
+    <div class="col 12 col-sm-6">
+      <%= image_tag photo.picture.to_s %>
+      <%= photo.caption %>
+    </div>
+  </div>
+</div>
+
 
