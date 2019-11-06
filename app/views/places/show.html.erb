@@ -103,7 +103,7 @@
 <% end %>
 </div>
 
-<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+<div class="modal fade" id="photoModal" tabindex="-1" role="dialog" aria-labelledby="photoLabel" aria-hidden="true">
   <div class="modal-dialog" role="document">
     <div class="modal-content">
       <div class="modal-header">
@@ -128,10 +128,14 @@
 <div class="col-10 offset-1">
 <h1 class="float-left"> Photos </h1>
 <!-- Button trigger modal -->
-<button type="button" class="btn btn-primary btn-lg float-right" data-toggle="modal" data-target="#myModal">
+<button type="button" class="btn btn-primary btn-lg float-right" data-toggle="modal" data-target="#photoModal">
   Add a Photo
 </button>
 </div>
+
+
+
+
 
 <div class="clear"></div>
   <div class="booyah-box col-10 offset-1">
@@ -140,5 +144,6 @@
       <%= image_tag photo.picture.to_s %>
       <%= photo.caption %>
     </div>
+  <% end %>
   </div>
 </div>
