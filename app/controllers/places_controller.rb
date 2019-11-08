@@ -35,18 +35,16 @@ class PlacesController < ApplicationController
 
     def update
         @place = Place.find(params[:id])
-        @place.update_attributes(place_params)
-        redirect_to root_path
-
         if @place.user != current_user
             return render plain: 'Not Allowed', status: :forbidden
-          end
+        end
 
+        @place.update_attributes(place_params)
         if @place.valid?
             redirect_to root_path
-          else
+        else
             render :edit, status: :unprocessable_entity
-          end
+        end
     end
 
     def destroy
